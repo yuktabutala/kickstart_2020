@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+int main(){
+	ll t;
+	cin>>t;
+	for(ll i=0;i<t;i++){
+		ll n,k;
+		cin>>n>>k;
+		vector<ll> v;
+		for(ll j=0;j<n;j++){
+			ll la;
+			cin>>la;
+			v.push_back(la);
+		}
+		ll start=0;
+		ll count=0;
+		for(ll j=0;j<n;j++){
+			if(start==1 && v[j]==v[j-1]-1){
+				start=1;
+				if(v[j]==1){
+					count=count+1;
+				}
+			}
+			else{
+				start=0;
+			}
+
+			if(v[j]==k){
+				start=1;
+			}
+
+		}
+		cout<<"Case #"<<i+1<<":"<<" "<<count<<endl;
+	}
+	return 0;
+}
